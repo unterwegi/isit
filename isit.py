@@ -84,7 +84,7 @@ archlinux_vers = None
 # Centos
 centos = 'centos' in platform.dist()[0].lower()
 centos_vers = None
-if centos_vers:
+if centos:
 	centos_vers = platform.dist()[1]
 # Redhat
 redhat = 'redhat' in platform.dist()[0].lower()
