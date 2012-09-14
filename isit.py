@@ -68,9 +68,11 @@ solaris    = ('sunos' in str(sys.platform).lower())
 ################
 # Ubuntu
 ubuntu = False
+ubuntu_vers = None
 if os.path.exists('/proc/version'):
 	ubuntu = 'ubuntu' in open('/proc/version').read().lower()
-ubuntu_vers = None
+if ubuntu:
+	ubuntu_vers = open('/etc/lsb-release').readlines()[1].split('=')[1].replace('\n','')
 # Debian
 debian = os.path.exists('/etc/debian_version')
 debian_vers = None
@@ -80,12 +82,12 @@ if debian:
 archlinux = os.path.exists('/etc/arch-release')
 archlinux_vers = None
 # Centos
-centos = False
-if os.path.exists('/proc/version'):
-	centos = 'centos' in open('/proc/version').read().lower()
+centos = 'centos' in platform.dist()[0].lower()
 centos_vers = None
+if centos_vers:
+	centos_vers = platform.dist()[1].split('.')[0]
 # Redhat
-redhat = False
-if os.path.exists('/proc/version'):
-	redhat = 'redhat' in open('/proc/version').read().lower()
+redhat = 'redhat' in platform.dist()[0].lower()
 redhat_vers = None
+if redhat:
+	redhat_vers = platform.dist()[1].split('.')[0]
