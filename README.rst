@@ -33,5 +33,12 @@ Heavily inspired by `its`_ by `Kenneth Reitz`_.
 
 You can do ``help(isit)`` for list.
 
+Installation
+------------
+
+::
+
+	pip install isit
+
 .. _its: https://github.com/kennethreitz/its.py
 .. _Kenneth Reitz: https://github.com/kennethreitz
