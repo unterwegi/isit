@@ -15,7 +15,7 @@ if sys.argv[-1] == 'publish':
 
 setup(
 	name			= 'isit',
-	version			= '0.1.2',
+	version			= '0.1.3',
 	description 		= 'Environment detection',
 	long_description	= open('README.rst').read(), 
 	author 			= 'Geoffrey Lehée',
