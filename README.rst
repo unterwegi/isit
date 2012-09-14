@@ -5,7 +5,7 @@ Description
 -----------
 
 Detect environment variables, such ``linux``, ``distribution``, ``python``, etc...  
-Heavily inspired by `its`_ by `Kenneth Reitz`_.
+Heavily inspired by `its`_ from `Kenneth Reitz`_.
 
 ::
 
