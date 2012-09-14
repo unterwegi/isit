@@ -74,7 +74,7 @@ if os.path.exists('/proc/version'):
 if ubuntu:
 	ubuntu_vers = open('/etc/lsb-release').readlines()[1].split('=')[1].replace('\n','')
 # Debian
-debian = os.path.exists('/etc/debian_version')
+debian = os.path.exists('/etc/debian_version') and not ubuntu
 debian_vers = None
 if debian:
 	debian_vers = open('/etc/debian_version').read().replace('\n','')
