@@ -20,7 +20,7 @@ setup(
 	long_description	= open('README.rst').read(), 
 	author 			= 'Geoffrey Lehée',
 	author_email 		= 'geoffrey@lehee.name',
-	url 			= '## Set url',
+	url 			= 'https://github.com/socketubs/isit',
 	keywords 		= 'python linux env variable windows arch distribution',
 	py_modules 		= ['isit'],
 	include_package_data	= True,

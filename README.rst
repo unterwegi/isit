@@ -5,7 +5,7 @@ Description
 -----------
 
 Detect environment variables, such ``linux``, ``distribution``, ``python``, etc...  
-Heavily inspired by `its`_ from `Kenneth Reitz`_.
+Heavily inspired by `its`_ from `Kenneth Reitz`_. But with moar!
 
 ::
 
@@ -22,8 +22,10 @@ Heavily inspired by `its`_ from `Kenneth Reitz`_.
 	False
 	>>> isit.debian
 	True
-	>>> isit.debian_vers
+	>>> isit.debian_version
 	'6.0.5'
+  >>> isit.debian_release
+  '5'
 	>>> isit.bit32
 	True
 	>>> isit.pypy
