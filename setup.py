@@ -3,6 +3,7 @@
 
 import os
 import sys
+import isit
 
 try:
 	from setuptools import setup
@@ -13,18 +14,26 @@ if sys.argv[-1] == 'publish':
 	os.system('python setup.py sdist upload')
 	sys.exit()
 
+if sys.version < '3':
+  import codecs
+  def u(x):
+    return codecs.unicode_escape_decode(x)[0]
+else:
+  def u(x):
+    return x
+
 setup(
-	name			= 'isit',
-	version			= '0.1.3',
-	description 		= 'Environment detection',
-	long_description	= open('README.rst').read(), 
-	author 			= 'Geoffrey Lehée',
-	author_email 		= 'geoffrey@lehee.name',
-	url 			= 'https://github.com/socketubs/isit',
-	keywords 		= 'python linux env variable windows arch distribution',
-	py_modules 		= ['isit'],
-	include_package_data	= True,
-	classifiers		= [
+	name='isit',
+	version=isit.__version__,
+	description='Environment detection',
+	long_description=open('README.rst').read(), 
+	author=u('Geoffrey Lehée'),
+	author_email='geoffrey@lehee.name',
+	url='https://github.com/socketubs/isit',
+	keywords='python linux env variable windows arch distribution',
+	py_modules=['isit'],
+	include_package_data=True,
+	classifiers=[
 		'Development Status :: 4 - Beta',
 		'License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)',
 		'Programming Language :: Python',
