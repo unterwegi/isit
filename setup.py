@@ -25,7 +25,7 @@ else:
 setup(
 	name='isit',
 	version=isit.__version__,
-	description='Environment detection',
+	description='Environment runtime detection (Python,Linux,Distribution,etc...)',
 	long_description=open('README.rst').read(), 
 	author=u('Geoffrey Lehée'),
 	author_email='geoffrey@lehee.name',
