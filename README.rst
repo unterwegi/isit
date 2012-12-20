@@ -4,8 +4,7 @@ Isit
 Description
 -----------
 
-Detect environment variables, such ``linux``, ``distribution``, ``python``, etc...  
-Heavily inspired by `its`_ from `Kenneth Reitz`_. But with moar!
+Detect environment variables, such ``linux``, ``distribution``, ``python``, etc...
 
 ::
 
@@ -41,6 +40,9 @@ Installation
 ::
 
 	pip install isit
+
+
+Heavily inspired by `its`_ from `Kenneth Reitz`_. But with moar!
 
 .. _its: https://github.com/kennethreitz/its.py
 .. _Kenneth Reitz: https://github.com/kennethreitz
