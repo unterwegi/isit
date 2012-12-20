@@ -68,7 +68,7 @@ if linux:
   linux3 = '3' in linux_version[0]
 # Osx
 osx = platform.system().lower() == 'darwin'
-osx = None
+osx_version = None
 if osx:
   osx_version = _u(platform.mac_ver()[0])
 # Windows
