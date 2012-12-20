@@ -85,6 +85,7 @@ ubuntu = False
 ubuntu_version = None
 ubuntu_release = None
 ubuntu_lts = None
+ubuntu_codename = None
 if os.path.exists('/proc/version'):
   _proc_version_file = open('/proc/version')
   _proc_version_lines = [_line.replace('\n', '') for _line in _proc_version_file.readlines()]
