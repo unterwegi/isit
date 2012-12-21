@@ -16,7 +16,7 @@ if sys.version < '3':
 else:
   def _u(x):
     return x
- 
+
 __version__ = _u('0.2.2')
 
 ##########
@@ -33,10 +33,10 @@ py27 = (py2 and sys.version_info[1] == 7)
 py26 = (py2 and sys.version_info[1] == 6)
 py25 = (py2 and sys.version_info[1] == 5)
 py24 = (py2 and sys.version_info[1] == 4)
-pypy = ('pypy' in sys.version_info)
-jython = ('java' in sys.version_info)
-ironpython = ('iron' in sys.version_info)
-cpython = not any((pypy, jython, ironpython))
+pypy = ('pypy' in platform.python_implementation().lower())
+jython = ('java' in platform.python_implementation().lower())
+ironpython = ('iron' in platform.python_implementation().lower())
+cpython = ('cpython' in platform.python_implementation().lower())
 
 ########
 # Arch #
