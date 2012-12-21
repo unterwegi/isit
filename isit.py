@@ -34,8 +34,8 @@ py26 = (py2 and sys.version_info[1] == 6)
 py25 = (py2 and sys.version_info[1] == 5)
 py24 = (py2 and sys.version_info[1] == 4)
 pypy = ('pypy' in platform.python_implementation().lower())
-jython = ('java' in platform.python_implementation().lower())
-ironpython = ('iron' in platform.python_implementation().lower())
+jython = ('jython' in platform.python_implementation().lower())
+ironpython = ('ironpython' in platform.python_implementation().lower())
 cpython = ('cpython' in platform.python_implementation().lower())
 
 ########
