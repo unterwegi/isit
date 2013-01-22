@@ -129,15 +129,15 @@ centos = 'centos' in platform.dist()[0].lower()
 centos_version = None
 centos_release = None
 if centos:
-  centos_version = _u(platform.dist()[1])
-  centos_release = _u(centos_version.split('.')[-1])
+  centos_version = _u(platform.dist()[1].split('.')[0])
+  centos_release = _u(platform.dist()[1].split('.')[-1])
 # Redhat
 redhat = 'redhat' in platform.dist()[0].lower()
 redhat_version = None
 redhat_release = None
 if redhat:
-  redhat_version = _u(platform.dist()[1])
-  redhat_release = _u(redhat_version.split('.')[-1])
+  redhat_version = _u(platform.dist()[1].split('.')[0])
+  redhat_release = _u(platform.dist()[1].split('.')[-1])
 
 ############
 # Packages #
