@@ -6,6 +6,7 @@ import os
 import sys
 import platform
 import struct
+import datetime
 from subprocess import Popen
 from subprocess import PIPE as _PIPE
 
@@ -139,8 +140,50 @@ if redhat:
   redhat_version = _u(platform.dist()[1].split('.')[0])
   redhat_release = _u(platform.dist()[1].split('.')[-1])
 
+#######
+# Env #
+#######
+home = os.path.expanduser("~") == os.getcwd() or False
+virtualenv = hasattr(sys, 'real_prefix')
+newrelic = 'newrelic' in sys.modules or False
+heroku = os.environ.get('PYTHONHOME') == "/app/.heroku/python" or False
+in_git = '.git' in os.listdir('.')
+
 ############
 # Packages #
 ############
 package_deb = ubuntu or debian
 package_rpm = centos or redhat
+
+########
+# Date #
+########
+_now = datetime.datetime.now()
+# Weekdays
+monday = _now.isoweekday() == 1 or False
+tuesday = _now.isoweekday() == 2 or False
+wednesday = _now.isoweekday() == 3 or False
+thursday = _now.isoweekday() == 4 or False
+friday = _now.isoweekday() == 5 or False
+saturday = _now.isoweekday() == 6 or False
+sunday = _now.isoweekday() == 7 or False
+# Months
+january = _now.month == 1 or False
+february = _now.month == 2 or False
+march = _now.month == 3 or False
+april = _now.month == 4 or False
+may = _now.month == 5 or False
+june = _now.month == 6 or False
+july = _now.month == 7 or False
+august = _now.month == 8 or False
+september = _now.month == 9 or False
+october = _now.month == 10 or False
+november = _now.month == 11 or False
+december = _now.month == 12 or False
+# Seasons
+winter = (december or january or february) or False
+spring = (march or april or may) or False
+summer = (june or july or august) or False
+autumn = (september or october or november) or False
+# Others
+weekend = (saturday or sunday) or False
