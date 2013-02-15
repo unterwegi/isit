@@ -31,6 +31,14 @@ Detect environment variables, such ``linux``, ``distribution``, ``python``, etc.
   False
   >>> isit.cpython
   True
+  >>> isit.friday
+  True
+  >>> isit.winter
+  True
+  >>> isit.heroku
+  False
+  >>> isit.newrelic
+  False
 
 You can do ``help(isit)`` for list.
 
@@ -41,8 +49,3 @@ Installation
 
 	pip install isit
 
-
-Heavily inspired by `its`_ from `Kenneth Reitz`_. But with moar!
-
-.. _its: https://github.com/kennethreitz/its.py
-.. _Kenneth Reitz: https://github.com/kennethreitz
