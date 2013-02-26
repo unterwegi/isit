@@ -90,21 +90,32 @@ solaris = ('sunos' in str(sys.platform).lower())
 #################
 # Distributions #
 #################
+# Linux Mint
+linuxmint = False
+linuxmint_version = None
+linuxmint_codename = None
+if os.path.exists('/etc/lsb-release'):
+  _lsb_release_file = open('/etc/lsb-release')
+  _lsb_release_lines = [_line.replace('\n', '') for _line in _lsb_release_file.readlines()]
+  _lsb_release_file.close()
+  linuxmint = 'linux mint' in _lsb_release_lines[0].lower()
+if linuxmint:
+  _linuxmint_version = _u((_lsb_release_lines[3].split('=')[-1].split(' ')[1].replace('"', '')))
+  linuxmint_version = _u('.'.join(_linuxmint_version.split('.')[:2]))
+  if len(_lsb_release_lines[3].split('=')[-1].split(' ')[1].split('.')) == 3:
+    linuxmint_release = _u(_lsb_release_lines[3].split('=')[-1].split(' ')[1].split('.')[2])
 # Ubuntu
 ubuntu = False
 ubuntu_version = None
 ubuntu_release = None
 ubuntu_lts = None
 ubuntu_codename = None
-if os.path.exists('/proc/version'):
-  _proc_version_file = open('/proc/version')
-  _proc_version_lines = [_line.replace('\n', '') for _line in _proc_version_file.readlines()]
-  _proc_version_file.close()
-  ubuntu = 'ubuntu' in _proc_version_lines[0].lower()
-if ubuntu:
+if os.path.exists('/etc/lsb-release'):
   _lsb_release_file = open('/etc/lsb-release')
   _lsb_release_lines = [_line.replace('\n', '') for _line in _lsb_release_file.readlines()]
   _lsb_release_file.close()
+  ubuntu = 'ubuntu' in _lsb_release_lines[0].lower()
+if ubuntu:
   _ubuntu_version = _u((_lsb_release_lines[3].split('=')[-1].split(' ')[1].replace('"', '')))
   ubuntu_version = _u('.'.join(_ubuntu_version.split('.')[:2]))
   if len(_lsb_release_lines[3].split('=')[-1].split(' ')[1].split('.')) == 3:
