@@ -18,7 +18,7 @@ else:
   def _u(x):
     return x
 
-__version__ = _u('0.3')
+__version__ = '0.3'
 
 ##########
 # Python #
