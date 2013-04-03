@@ -3,12 +3,23 @@
 
 import os
 import sys
-import isit
+import re
 
 try:
 	from setuptools import setup
 except ImportError:
 	from distutils.core import setup
+
+
+def get_version():
+    VERSIONFILE = 'isit.py'
+    initfile_lines = open(VERSIONFILE, 'rt').readlines()
+    VSRE = r"^__version__ = ['\"]([^'\"]*)['\"]"
+    for line in initfile_lines:
+        mo = re.search(VSRE, line, re.M)
+        if mo:
+            return u(mo.group(1))
+    raise RuntimeError('Unable to find version string in %s.' % (VERSIONFILE,))
 
 if sys.argv[-1] == 'publish':
 	os.system('python setup.py sdist upload')
@@ -24,9 +35,9 @@ else:
 
 setup(
 	name='isit',
-	version=isit.__version__,
+	version=get_version(),
 	description='Environment runtime detection (Python,Linux,Distribution,etc...)',
-	long_description=open('README.rst').read(), 
+	long_description=open('README.rst').read(),
 	author=u('Geoffrey Lehée'),
 	author_email='geoffrey@lehee.name',
 	url='https://github.com/socketubs/isit',
