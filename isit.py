@@ -104,19 +104,19 @@ if linuxmint:
   linuxmint_codename =  _lsb_release_lines[2].split('=')[-1]
 # ElementaryOS
 elementaryos = False
-elementary_version = None
-elementary_release = None
-elementary_codename = None
+elementaryos_version = None
+elementaryos_release = None
+elementaryos_codename = None
 if os.path.exists('/etc/lsb-release'):
   _lsb_release_file = open('/etc/lsb-release')
   _lsb_release_lines = [_line.replace('\n', '') for _line in _lsb_release_file.readlines()]
   _lsb_release_file.close()
   elementaryos = 'elementary os' in _lsb_release_lines[0].lower()
 if elementaryos:
-  _elementaryos_version = _u((_lsb_release_lines[3].split('=')[-1].split(' ')[1].replace('"', '')))
-  elementaryos_version = _u('.'.join(_elementaryos_version.split('.')[:2]))
-  if len(_lsb_release_lines[3].split('=')[-1].split(' ')[1].split('.')) == 3:
-    elementaryos_release = _u(_lsb_release_lines[3].split('=')[-1].split(' ')[1].split('.')[2])
+  elementaryos_version = _u((_lsb_release_lines[1].split('=')[-1]))
+  elementaryos_version = _u('.'.join(elementaryos_version.split('.')[:2]))
+  if len(_lsb_release_lines[1].split('=')[-1].split('.')) == 3:
+    elementaryos_release = _u(_lsb_release_lines[1].split('=')[-1].split('.')[2])
   elementaryos_codename = _u(_lsb_release_lines[2].split('=')[1])
 # Ubuntu
 ubuntu = False
