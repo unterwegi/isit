@@ -53,6 +53,7 @@ else:
 ########
 bit32 = struct.calcsize('P') * 8 == 32
 bit64 = struct.calcsize('P') * 8 == 64
+sparc = platform.processor() == "sparc"
 
 ##############
 # Endianness #
@@ -164,6 +165,9 @@ redhat_release = None
 if redhat:
   redhat_version = _u(platform.dist()[1].split('.')[0])
   redhat_release = _u(platform.dist()[1].split('.')[-1])
+# Solaris
+if solaris:
+  solaris_version = platform.release()
 
 #######
 # Env #
@@ -179,6 +183,7 @@ in_git = '.git' in os.listdir('.')
 ############
 package_deb = ubuntu or debian
 package_rpm = centos or redhat
+package_pkg = solaris
 
 ########
 # Date #
