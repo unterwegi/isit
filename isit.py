@@ -85,7 +85,7 @@ if osx:
 # Windows
 windows = ('win32' in str(sys.platform).lower())
 # Other
-hpux = ('hpux' in str(sys.platform).lower())
+hpux = ('hpux' in str(sys.platform).lower()) or ('hp-ux' in str(sys.platform).lower())
 solaris = ('sunos' in str(sys.platform).lower())
 
 #################
